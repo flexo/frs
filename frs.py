@@ -62,7 +62,8 @@ while True:
 
     # make pretty graphs
     rrdtool.graph(marginimg,
-        '-M', '-l', '0', '--start', '-2h',
+        '-M', '-l', '0', '--start', '-8h',
+        '--width', '800', '--height', '200',
         'DEF:marginrx=data.rrd:marginrx:AVERAGE',
         'LINE1:marginrx#800000:Margin RX',
         'DEF:margintx=data.rrd:margintx:AVERAGE',
@@ -70,7 +71,8 @@ while True:
         'GPRINT:marginrx:LAST:Current Margin RX\: %1.3lf',
         'GPRINT:margintx:LAST:Current Margin TX\: %1.3lf')
     rrdtool.graph(syncimg,
-        '-M', '-l', '0', '--start', '-2h',
+        '-M', '-l', '0', '--start', '-8h',
+        '--width', '800', '--height', '200',
         'DEF:syncrx=data.rrd:syncrx:AVERAGE',
         'LINE1:syncrx#800000:Sync RX',
         'DEF:synctx=data.rrd:synctx:AVERAGE',
